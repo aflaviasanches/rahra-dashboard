@@ -175,9 +175,36 @@ table.gt{width:100%;border-collapse:collapse}
     <div class="brand">RAHRA SEMIJOIAS</div>
     <div class="sub">GERENCIAMENTO DE RESULTADOS DE REDE</div>
   </div>
-  <div class="h-right">
-    <div class="mes" id="hdr-mes">—</div>
-    <div class="base">BASE: ABA 2026 · V6 METAS 2026</div>
+  <div class="h-right" style="display:flex;align-items:center;gap:18px">
+    <div style="text-align:right">
+      <div class="mes" id="hdr-mes">—</div>
+      <div class="base">BASE: ABA 2026 · V6 METAS 2026</div>
+    </div>
+    <div id="admin-icon" onclick="toggleAdmin()" title="" style="cursor:pointer;opacity:.35;transition:opacity .2s;font-size:16px;color:#fff;padding:6px;border-radius:50%" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='.35'">⚙</div>
+  </div>
+</div>
+
+<!-- MODAL ADMIN -->
+<div id="admin-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:32px 36px;width:320px;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:#0f0f0f;margin-bottom:6px">Atualizar dados</div>
+    <div style="font-family:'Outfit',sans-serif;font-size:12px;color:#888;margin-bottom:20px">Acesso restrito</div>
+    <div id="admin-senha-wrap">
+      <input id="admin-senha" type="password" placeholder="Senha" onkeydown="if(event.key==='Enter')confirmarSenha()"
+        style="width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;outline:none;margin-bottom:10px">
+      <div id="admin-erro" style="font-size:11px;color:#c0202f;margin-bottom:10px;display:none">Senha incorreta</div>
+      <div style="display:flex;gap:8px">
+        <button onclick="confirmarSenha()" style="flex:1;background:#9F1957;color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer">Entrar</button>
+        <button onclick="fecharAdmin()" style="flex:1;background:#f0f0f0;color:#444;border:none;border-radius:8px;padding:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
+      </div>
+    </div>
+    <div id="admin-upload-wrap" style="display:none">
+      <div style="font-family:'Outfit',sans-serif;font-size:13px;color:#444;margin-bottom:14px">Carregue a planilha para atualizar o dashboard</div>
+      <label for="fi" style="display:block;text-align:center;background:#9F1957;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer">↑ Selecionar planilha .xlsx</label>
+      <input type="file" id="fi" accept=".xlsx,.xls" onchange="handleFile(this)" style="display:none">
+      <div id="uploadStatus" style="font-size:11px;color:#888;font-family:'JetBrains Mono',monospace;margin-top:10px;text-align:center"></div>
+      <button onclick="fecharAdmin()" style="width:100%;margin-top:12px;background:#f0f0f0;color:#444;border:none;border-radius:8px;padding:10px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Fechar</button>
+    </div>
   </div>
 </div>
 
@@ -196,11 +223,7 @@ table.gt{width:100%;border-collapse:collapse}
   <button class="nav-btn" onclick="showTab('geral',this)">Geral 2026</button>
 </div>
 
-<div class="upload-bar">
-  <label for="fi">↑ Carregar planilha .xlsx</label>
-  <input type="file" id="fi" accept=".xlsx,.xls" onchange="handleFile(this)">
-  <span id="uploadStatus">Dados padrão 2026 · carregue planilha para atualizar</span>
-</div>
+
 
 <!-- FECHAMENTO -->
 <div id="page-fechamento" class="page active"><div class="container">
@@ -643,6 +666,35 @@ function showTab(n,btn){
 initMeses();
 selecionarMes(DB.meses[DB.meses.length-1]);
 renderGeral();
+
+function toggleAdmin() {
+  const ov = document.getElementById('admin-overlay');
+  ov.style.display = 'flex';
+  document.getElementById('admin-senha').value = '';
+  document.getElementById('admin-erro').style.display = 'none';
+  document.getElementById('admin-senha-wrap').style.display = 'block';
+  document.getElementById('admin-upload-wrap').style.display = 'none';
+  setTimeout(() => document.getElementById('admin-senha').focus(), 100);
+}
+function fecharAdmin() {
+  document.getElementById('admin-overlay').style.display = 'none';
+}
+function confirmarSenha() {
+  const s = document.getElementById('admin-senha').value;
+  if (s === '124578') {
+    document.getElementById('admin-senha-wrap').style.display = 'none';
+    document.getElementById('admin-upload-wrap').style.display = 'block';
+  } else {
+    document.getElementById('admin-erro').style.display = 'block';
+    document.getElementById('admin-senha').value = '';
+    document.getElementById('admin-senha').focus();
+  }
+}
+// Fechar modal clicando fora
+document.getElementById('admin-overlay').addEventListener('click', function(e) {
+  if (e.target === this) fecharAdmin();
+});
+
 </script>
 </body>
 </html>
