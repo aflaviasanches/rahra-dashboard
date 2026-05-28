@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rahra · Dashboard de Fechamento 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --brand:#9F1957;--brand-dark:#7a1342;--brand-glow:rgba(159,25,87,.12);
@@ -192,7 +190,7 @@ table.gt{width:100%;border-collapse:collapse}
   .modal-step.active{display:block}
 
 </style>
-</head>
+<meta id="dcngeagmmhegagicpcmpinaoklddcgon"></head>
 <body>
 
 <div class="header">
@@ -201,14 +199,14 @@ table.gt{width:100%;border-collapse:collapse}
     <div class="sub">GERENCIAMENTO DE RESULTADOS DE REDE</div>
   </div>
   <div class="h-right">
-    <div class="mes" id="hdr-mes">—</div>
+    <div class="mes" id="hdr-mes">Maio 2026</div>
     <div class="base">BASE: ABA 2026 · V6 METAS 2026</div>
   </div>
 </div>
 
 <div class="mes-bar">
   <span class="mes-bar-label">Mês</span>
-  <div id="mes-btns" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+  <div id="mes-btns" style="display:flex;gap:8px;flex-wrap:wrap"><button class="mes-btn" onclick="selecionarMes('Jan',this)">Jan</button><button class="mes-btn" onclick="selecionarMes('Fev',this)">Fev</button><button class="mes-btn" onclick="selecionarMes('Mar',this)">Mar</button><button class="mes-btn" onclick="selecionarMes('Abr',this)">Abr</button><button class="mes-btn active" onclick="selecionarMes('Maio',this)">Maio</button></div>
 </div>
 
 <div class="nav">
@@ -224,32 +222,32 @@ table.gt{width:100%;border-collapse:collapse}
 <div class="upload-bar">
   <label for="fi">↑ Carregar planilha .xlsx</label>
   <input type="file" id="fi" accept=".xlsx,.xls" onchange="handleFile(this)">
-  <span id="uploadStatus">Dados padrão 2026 · carregue planilha para atualizar</span>
+  <span id="uploadStatus" class="ok">✓ V6_metas_26_maio rev.xlsx · 5 meses</span>
 </div>
 
 <!-- FECHAMENTO -->
 <div id="page-fechamento" class="page active"><div class="container">
   <div class="sec" id="sec-kpi">KPIs</div>
   <div class="kpi-row">
-    <div class="kcard"><div class="klabel">Realizado</div><div class="kval" id="k-real">—</div><div class="ksub" id="k-meta-s">—</div><div class="kbadge" id="k-pct-b">—</div><div class="kcard-accent ac-brand"></div></div>
-    <div class="kcard"><div class="klabel">Crescimento 26×25</div><div class="kval green" id="k-cresc">—</div><div class="ksub" id="k-cresc-s">—</div><div class="kbadge kb-green" id="k-sss-b">—</div><div class="kcard-accent ac-green"></div></div>
-    <div class="kcard"><div class="klabel">Lojas na Meta</div><div class="kval red" id="k-na-meta">—</div><div class="ksub" id="k-lojas-s">—</div><div class="kbadge kb-muted" id="k-topo">—</div><div class="kcard-accent ac-red"></div></div>
-    <div class="kcard"><div class="klabel">TM · PA · NV</div><div class="kval dark" id="k-tm">—</div><div class="ksub" id="k-pa-nv">—</div><div class="kbadge kb-brand" id="k-tm-b">—</div><div class="kcard-accent ac-amber"></div></div>
+    <div class="kcard"><div class="klabel">Realizado</div><div class="kval" id="k-real">R$ 3,99M</div><div class="ksub" id="k-meta-s">Meta: R$ 5,51M</div><div class="kbadge kb-red" id="k-pct-b">72.3% da meta</div><div class="kcard-accent ac-brand"></div></div>
+    <div class="kcard"><div class="klabel">Crescimento 26×25</div><div class="kval green" id="k-cresc">+1.90%</div><div class="ksub" id="k-cresc-s">Lojas comparáveis vs ano anterior</div><div class="kbadge kb-green" id="k-sss-b">SSS: -3.33%</div><div class="kcard-accent ac-green"></div></div>
+    <div class="kcard"><div class="klabel">Lojas na Meta</div><div class="kval red" id="k-na-meta">1</div><div class="ksub" id="k-lojas-s">de 61 lojas ativas</div><div class="kbadge kb-muted" id="k-topo">Topo: 100.9%</div><div class="kcard-accent ac-red"></div></div>
+    <div class="kcard"><div class="klabel">TM · PA · NV</div><div class="kval dark" id="k-tm">R$ 183,68</div><div class="ksub" id="k-pa-nv">PA: 2.12 · NV: 23.284</div><div class="kbadge kb-brand" id="k-tm-b">Meta TM: R$ 190,00</div><div class="kcard-accent ac-amber"></div></div>
   </div>
   <div class="sec">Evolução Acumulada 2026</div>
-  <div class="evol-row" id="evol-row" style="grid-template-columns:repeat(5,1fr)"></div>
+  <div class="evol-row" id="evol-row" style="grid-template-columns:repeat(5,1fr)"><div class="ecard"><div class="emes">JAN</div><div class="epct ca">81.9%</div><div class="ebar-wrap"><div class="ebar bg-a" style="width:81.9%"></div></div><div class="evals">R$ 3,00M / R$ 3,67M</div></div><div class="ecard"><div class="emes">FEV</div><div class="epct ca">93.0%</div><div class="ebar-wrap"><div class="ebar bg-a" style="width:93%"></div></div><div class="evals">R$ 2,61M / R$ 2,80M</div></div><div class="ecard"><div class="emes">MAR</div><div class="epct ca">99.1%</div><div class="ebar-wrap"><div class="ebar bg-a" style="width:99.1%"></div></div><div class="evals">R$ 3,44M / R$ 3,47M</div></div><div class="ecard"><div class="emes">ABR</div><div class="epct ca">86.3%</div><div class="ebar-wrap"><div class="ebar bg-a" style="width:86.3%"></div></div><div class="evals">R$ 3,35M / R$ 3,88M</div></div><div class="ecard active-mes"><div class="emes">MAIO</div><div class="epct cr">72.3%</div><div class="ebar-wrap"><div class="ebar bg-r" style="width:72.3%"></div></div><div class="evals">R$ 3,99M / R$ 5,51M</div></div></div>
   <div class="sec">Destaques · Top 5 Franquia · Top 5 LP · Atenção (&lt;80%)</div>
   <div class="three">
-    <div class="panel"><div class="panel-head">Top 5 Franquia <span class="ptag kb-brand" id="fr-tag">—</span></div><div id="top5-fr"></div></div>
-    <div class="panel"><div class="panel-head">Top 5 LP <span class="ptag kb-muted" id="lp-tag">—</span></div><div id="top5-lp"></div></div>
-    <div class="panel"><div class="panel-head" style="color:var(--red)">⚠ Abaixo de 80% · <span id="ab-count">—</span> lojas</div><div id="ab80" style="max-height:320px;overflow-y:auto"></div></div>
+    <div class="panel"><div class="panel-head">Top 5 Franquia <span class="ptag kb-brand" id="fr-tag">1 na meta</span></div><div id="top5-fr"><div class="prow"><span class="prank">1</span><div class="pinfo"><div class="pnome">CONTAGEM - CONTAGEM SHOPPING</div><div class="pgs">GS</div></div><span class="ppct pct-g">100.9%</span></div><div class="prow"><span class="prank">2</span><div class="pinfo"><div class="pnome">PINHEIRO</div><div class="pgs">TBD</div></div><span class="ppct pct-a">95.0%</span></div><div class="prow"><span class="prank">3</span><div class="pinfo"><div class="pnome">CONTAGEM - BIG SHOPPING</div><div class="pgs">GS</div></div><span class="ppct pct-a">93.1%</span></div><div class="prow"><span class="prank">4</span><div class="pinfo"><div class="pnome">BH - VIA BARREIRO SHOPPING</div><div class="pgs">GS</div></div><span class="ppct pct-a">92.4%</span></div><div class="prow"><span class="prank">5</span><div class="pinfo"><div class="pnome">BETIM - PARTAGE SHOPPING</div><div class="pgs">GS</div></div><span class="ppct pct-a">84.6%</span></div></div></div>
+    <div class="panel"><div class="panel-head">Top 5 LP <span class="ptag kb-muted" id="lp-tag">0 na meta</span></div><div id="top5-lp"><div class="prow"><span class="prank">1</span><div class="pinfo"><div class="pnome">CAUCAIA - IANDÊ SHOPPING</div><div class="pgs">Elisangela</div></div><span class="ppct pct-a">96.1%</span></div><div class="prow"><span class="prank">2</span><div class="pinfo"><div class="pnome">POUSO ALEGRE - BARONESA</div><div class="pgs">Ana Flávia</div></div><span class="ppct pct-a">93.9%</span></div><div class="prow"><span class="prank">3</span><div class="pinfo"><div class="pnome">SJC - JARDIM ORIENTE SHOPPING</div><div class="pgs">Jamila</div></div><span class="ppct pct-a">85.2%</span></div><div class="prow"><span class="prank">4</span><div class="pinfo"><div class="pnome">VALPARAISO</div><div class="pgs">TBD</div></div><span class="ppct pct-a">83.0%</span></div><div class="prow"><span class="prank">5</span><div class="pinfo"><div class="pnome">POUSO ALEGRE - COMENDADOR</div><div class="pgs">Luana</div></div><span class="ppct pct-a">80.9%</span></div></div></div>
+    <div class="panel"><div class="panel-head" style="color:var(--red)">⚠ Abaixo de 80% · <span id="ab-count">46</span> lojas</div><div id="ab80" style="max-height:320px;overflow-y:auto"><div class="prow"><div class="pinfo"><div class="pnome">SANTOS</div><div class="pgs">Franquia</div></div><span class="ppct pct-r">45.0%</span></div><div class="prow"><div class="pinfo"><div class="pnome">OURO FINO</div><div class="pgs">Franquia</div></div><span class="ppct pct-r">49.0%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SAO PAULO - JARDIM SUL</div><div class="pgs">Franquia</div></div><span class="ppct pct-r">51.6%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SÃO JOÃO DA BOA VISTA</div><div class="pgs">Franquia</div></div><span class="ppct pct-r">54.6%</span></div><div class="prow"><div class="pinfo"><div class="pnome">JUNDIAÍ - CENTRO</div><div class="pgs">LP</div></div><span class="ppct pct-r">55.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">ITAJUBA</div><div class="pgs">LP</div></div><span class="ppct pct-r">56.0%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POUSO ALEGRE - CATEDRAL</div><div class="pgs">LP</div></div><span class="ppct pct-r">59.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">JUNDIAÍ - MAXI SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">61.4%</span></div><div class="prow"><div class="pinfo"><div class="pnome">FORTALEZA - VIA SUL SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">62.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">MOGI GUAÇU - BURITI SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">63.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SJC - VALE SUL SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">63.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">BRASÍLIA - PARK SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">63.3%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SÃO GONÇALO DO SAPUCAÍ</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">63.7%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POÇOS DE CALDAS - SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">65.1%</span></div><div class="prow"><div class="pinfo"><div class="pnome">BH - SAVASSI</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">65.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SAO LOURENCO</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">65.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">VARGINHA - CENTRO</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">65.7%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POÇOS DE CALDAS - ASSIS</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">65.9%</span></div><div class="prow"><div class="pinfo"><div class="pnome">CAMBUI</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">67.4%</span></div><div class="prow"><div class="pinfo"><div class="pnome">CAMPINA GRANDE - HIPER IDEAL</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.1%</span></div><div class="prow"><div class="pinfo"><div class="pnome">CAMPINA GRANDE - PATARGE SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.1%</span></div><div class="prow"><div class="pinfo"><div class="pnome">JOÃO PESSOA - MAG SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">TAUBATE - SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SAO BERNARDO DO CAMPO - PLAZA SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.6%</span></div><div class="prow"><div class="pinfo"><div class="pnome">OURO PRETO</div><div class="pgs">LP</div></div><span class="ppct pct-a">68.8%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POÇOS DE CALDAS - SALLES</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">68.8%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POUSO ALEGRE - ADOLFO</div><div class="pgs">LP</div></div><span class="ppct pct-a">69.3%</span></div><div class="prow"><div class="pinfo"><div class="pnome">JACAREÍ</div><div class="pgs">LP</div></div><span class="ppct pct-a">70.7%</span></div><div class="prow"><div class="pinfo"><div class="pnome">BH - SHOPPING ESTAÇÃO</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">71.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">FORTALEZA - NORTH SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">71.9%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POÇOS DE CALDAS - RIO</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">71.9%</span></div><div class="prow"><div class="pinfo"><div class="pnome">NATAL - SHOPPING ANCAR</div><div class="pgs">LP</div></div><span class="ppct pct-a">72.4%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SJC - CENTER VALE SHOPPING</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">73.1%</span></div><div class="prow"><div class="pinfo"><div class="pnome">DIAMANTINA</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">73.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">ITABIRITO</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">74.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">MARACANAU</div><div class="pgs">LP</div></div><span class="ppct pct-a">74.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">BH - VIABRASIL PAMPULHA</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">74.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">ALFENAS</div><div class="pgs">LP</div></div><span class="ppct pct-a">74.9%</span></div><div class="prow"><div class="pinfo"><div class="pnome">LAFAIETE</div><div class="pgs">LP</div></div><span class="ppct pct-a">75.7%</span></div><div class="prow"><div class="pinfo"><div class="pnome">PASSOS</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">76.5%</span></div><div class="prow"><div class="pinfo"><div class="pnome">FORTALEZA - SOLARES SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">76.6%</span></div><div class="prow"><div class="pinfo"><div class="pnome">BOA ESPERANÇA</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">77.2%</span></div><div class="prow"><div class="pinfo"><div class="pnome">CAMPINAS - PARQUE DAS BANDEIRAS</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">77.8%</span></div><div class="prow"><div class="pinfo"><div class="pnome">NATAL - PARTAGE NORTE SHOPPING</div><div class="pgs">LP</div></div><span class="ppct pct-a">77.9%</span></div><div class="prow"><div class="pinfo"><div class="pnome">POUSO ALEGRE - SERRASUL</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">78.1%</span></div><div class="prow"><div class="pinfo"><div class="pnome">SANTA RITA</div><div class="pgs">Franquia</div></div><span class="ppct pct-a">78.5%</span></div></div></div>
   </div>
 </div></div>
 
 <!-- RESPONSÁVEIS -->
 <div id="page-responsaveis" class="page"><div class="container">
   <div class="sec" id="sec-resp">% Atingimento por Responsável</div>
-  <div class="gs-grid" id="gs-grid"></div>
+  <div class="gs-grid" id="gs-grid"><div class="gs-card"><div class="gs-top"><div><div class="gs-name">GS</div><div class="gs-meta">13 lojas · 2 LP · 11 Fr</div></div><div class="gs-chip" style="background:#f0a00022;color:var(--amber)">81.0%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:80.9501513384677%;background:#f0a000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">CONTAGEM - CONTAGEM SHOPPING</span><span class="gs-lpct pct-g">100.9%</span></div><div class="gs-lrow"><span class="gs-lnome">CONTAGEM - BIG SHOPPING</span><span class="gs-lpct pct-a">93.1%</span></div><div class="gs-lrow"><span class="gs-lnome">BH - VIA BARREIRO SHOPPING</span><span class="gs-lpct pct-a">92.4%</span></div><div class="gs-lrow"><span class="gs-lnome">BETIM - PARTAGE SHOPPING</span><span class="gs-lpct pct-a">84.6%</span></div><div class="gs-lrow"><span class="gs-lnome">BH - MINAS SHOPPING</span><span class="gs-lpct pct-a">82.5%</span></div><div class="gs-lrow"><span class="gs-lnome">IGARAPÉ</span><span class="gs-lpct pct-a">82.1%</span></div><div class="gs-lrow"><span class="gs-lnome">LAFAIETE</span><span class="gs-lpct pct-a">75.7%</span></div><div class="gs-lrow"><span class="gs-lnome">BH - VIABRASIL PAMPULHA</span><span class="gs-lpct pct-a">74.5%</span></div><div class="gs-lrow"><span class="gs-lnome">ITABIRITO</span><span class="gs-lpct pct-a">74.2%</span></div><div class="gs-lrow"><span class="gs-lnome">DIAMANTINA</span><span class="gs-lpct pct-a">73.2%</span></div><div class="gs-lrow"><span class="gs-lnome">BH - SHOPPING ESTAÇÃO</span><span class="gs-lpct pct-a">71.2%</span></div><div class="gs-lrow"><span class="gs-lnome">OURO PRETO</span><span class="gs-lpct pct-a">68.8%</span></div><div class="gs-lrow"><span class="gs-lnome">BH - SAVASSI</span><span class="gs-lpct pct-a">65.5%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Elisangela</div><div class="gs-meta">6 lojas · 6 LP · 0 Fr</div></div><div class="gs-chip" style="background:#e0800022;color:#e08000">75.7%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:75.73877586286369%;background:#e08000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">CAUCAIA - IANDÊ SHOPPING</span><span class="gs-lpct pct-a">96.1%</span></div><div class="gs-lrow"><span class="gs-lnome">FORTALEZA - JOQUEI SHOPPING</span><span class="gs-lpct pct-a">80.5%</span></div><div class="gs-lrow"><span class="gs-lnome">FORTALEZA - SOLARES SHOPPING</span><span class="gs-lpct pct-a">76.6%</span></div><div class="gs-lrow"><span class="gs-lnome">MARACANAU</span><span class="gs-lpct pct-a">74.5%</span></div><div class="gs-lrow"><span class="gs-lnome">FORTALEZA - NORTH SHOPPING</span><span class="gs-lpct pct-a">71.9%</span></div><div class="gs-lrow"><span class="gs-lnome">FORTALEZA - VIA SUL SHOPPING</span><span class="gs-lpct pct-a">62.5%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Ana Flávia</div><div class="gs-meta">3 lojas · 3 LP · 0 Fr</div></div><div class="gs-chip" style="background:#e0800022;color:#e08000">74.7%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:74.71845587085059%;background:#e08000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">POUSO ALEGRE - BARONESA</span><span class="gs-lpct pct-a">93.9%</span></div><div class="gs-lrow"><span class="gs-lnome">ALFENAS</span><span class="gs-lpct pct-a">74.9%</span></div><div class="gs-lrow"><span class="gs-lnome">ITAJUBA</span><span class="gs-lpct pct-r">56.0%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Ivana</div><div class="gs-meta">5 lojas · 2 LP · 3 Fr</div></div><div class="gs-chip" style="background:#e0800022;color:#e08000">70.7%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:70.66172584730195%;background:#e08000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">NATAL - PARTAGE NORTE SHOPPING</span><span class="gs-lpct pct-a">77.9%</span></div><div class="gs-lrow"><span class="gs-lnome">NATAL - SHOPPING ANCAR</span><span class="gs-lpct pct-a">72.4%</span></div><div class="gs-lrow"><span class="gs-lnome">JOÃO PESSOA - MAG SHOPPING</span><span class="gs-lpct pct-a">68.2%</span></div><div class="gs-lrow"><span class="gs-lnome">CAMPINA GRANDE - HIPER IDEAL</span><span class="gs-lpct pct-a">68.1%</span></div><div class="gs-lrow"><span class="gs-lnome">CAMPINA GRANDE - PATARGE SHOPPING</span><span class="gs-lpct pct-a">68.1%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Luana</div><div class="gs-meta">3 lojas · 3 LP · 0 Fr</div></div><div class="gs-chip" style="background:#e0800022;color:#e08000">67.7%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:67.68366690035758%;background:#e08000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">POUSO ALEGRE - COMENDADOR</span><span class="gs-lpct pct-a">80.9%</span></div><div class="gs-lrow"><span class="gs-lnome">POUSO ALEGRE - ADOLFO</span><span class="gs-lpct pct-a">69.3%</span></div><div class="gs-lrow"><span class="gs-lnome">POUSO ALEGRE - CATEDRAL</span><span class="gs-lpct pct-r">59.5%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Jaqueline</div><div class="gs-meta">23 lojas · 0 LP · 23 Fr</div></div><div class="gs-chip" style="background:#e0800022;color:#e08000">67.6%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:67.5861806217623%;background:#e08000"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">VARGINHA - VIA CAFÉ SHOPPING</span><span class="gs-lpct pct-a">84.0%</span></div><div class="gs-lrow"><span class="gs-lnome">SANTA RITA</span><span class="gs-lpct pct-a">78.5%</span></div><div class="gs-lrow"><span class="gs-lnome">POUSO ALEGRE - SERRASUL</span><span class="gs-lpct pct-a">78.1%</span></div><div class="gs-lrow"><span class="gs-lnome">CAMPINAS - PARQUE DAS BANDEIRAS</span><span class="gs-lpct pct-a">77.8%</span></div><div class="gs-lrow"><span class="gs-lnome">BOA ESPERANÇA</span><span class="gs-lpct pct-a">77.2%</span></div><div class="gs-lrow"><span class="gs-lnome">PASSOS</span><span class="gs-lpct pct-a">76.5%</span></div><div class="gs-lrow"><span class="gs-lnome">SJC - CENTER VALE SHOPPING</span><span class="gs-lpct pct-a">73.1%</span></div><div class="gs-lrow"><span class="gs-lnome">POÇOS DE CALDAS - RIO</span><span class="gs-lpct pct-a">71.9%</span></div><div class="gs-lrow"><span class="gs-lnome">POÇOS DE CALDAS - SALLES</span><span class="gs-lpct pct-a">68.8%</span></div><div class="gs-lrow"><span class="gs-lnome">SAO BERNARDO DO CAMPO - PLAZA SHOPPING</span><span class="gs-lpct pct-a">68.6%</span></div><div class="gs-lrow"><span class="gs-lnome">TAUBATE - SHOPPING</span><span class="gs-lpct pct-a">68.2%</span></div><div class="gs-lrow"><span class="gs-lnome">CAMBUI</span><span class="gs-lpct pct-a">67.4%</span></div><div class="gs-lrow"><span class="gs-lnome">POÇOS DE CALDAS - ASSIS</span><span class="gs-lpct pct-a">65.9%</span></div><div class="gs-lrow"><span class="gs-lnome">VARGINHA - CENTRO</span><span class="gs-lpct pct-a">65.7%</span></div><div class="gs-lrow"><span class="gs-lnome">SAO LOURENCO</span><span class="gs-lpct pct-a">65.5%</span></div><div class="gs-lrow"><span class="gs-lnome">POÇOS DE CALDAS - SHOPPING</span><span class="gs-lpct pct-a">65.1%</span></div><div class="gs-lrow"><span class="gs-lnome">SÃO GONÇALO DO SAPUCAÍ</span><span class="gs-lpct pct-a">63.7%</span></div><div class="gs-lrow"><span class="gs-lnome">MOGI GUAÇU - BURITI SHOPPING</span><span class="gs-lpct pct-a">63.2%</span></div><div class="gs-lrow"><span class="gs-lnome">SJC - VALE SUL SHOPPING</span><span class="gs-lpct pct-a">63.2%</span></div><div class="gs-lrow"><span class="gs-lnome">SÃO JOÃO DA BOA VISTA</span><span class="gs-lpct pct-r">54.6%</span></div><div class="gs-lrow"><span class="gs-lnome">SAO PAULO - JARDIM SUL</span><span class="gs-lpct pct-r">51.6%</span></div><div class="gs-lrow"><span class="gs-lnome">OURO FINO</span><span class="gs-lpct pct-r">49.0%</span></div><div class="gs-lrow"><span class="gs-lnome">SANTOS</span><span class="gs-lpct pct-r">45.0%</span></div></div></div><div class="gs-card"><div class="gs-top"><div><div class="gs-name">Jamila</div><div class="gs-meta">5 lojas · 5 LP · 0 Fr</div></div><div class="gs-chip" style="background:var(--red)22;color:var(--red)">59.9%</div></div><div class="gs-bar-wrap"><div class="gs-bar" style="width:59.92920068753046%;background:var(--red)"></div></div><div class="gs-list"><div class="gs-lrow"><span class="gs-lnome">SJC - JARDIM ORIENTE SHOPPING</span><span class="gs-lpct pct-a">85.2%</span></div><div class="gs-lrow"><span class="gs-lnome">JACAREÍ</span><span class="gs-lpct pct-a">70.7%</span></div><div class="gs-lrow"><span class="gs-lnome">JUNDIAÍ - MAXI SHOPPING</span><span class="gs-lpct pct-a">61.4%</span></div><div class="gs-lrow"><span class="gs-lnome">JUNDIAÍ - CENTRO</span><span class="gs-lpct pct-r">55.5%</span></div><div class="gs-lrow"><span class="gs-lnome">BRAGANÇA - SHOPPING CENTER BRAGANÇA</span><span class="gs-lpct pct-r">0.0%</span></div></div></div></div>
 </div></div>
 
 <!-- CANAIS -->
@@ -257,29 +255,29 @@ table.gt{width:100%;border-collapse:collapse}
   <div class="sec" id="sec-canais">LP × Franquia</div>
   <div class="canal-grid">
     <div class="ccard">
-      <div class="ccard-title">Lojas Próprias <span class="cpill pill-lp" id="lp-cnt">—</span></div>
+      <div class="ccard-title">Lojas Próprias <span class="cpill pill-lp" id="lp-cnt">23 Lojas</span></div>
       <div class="ckpis">
-        <div><div class="cklabel">Realizado</div><div class="ckval" style="color:var(--blue)" id="lp-real">—</div><div class="cksub" id="lp-meta">—</div></div>
-        <div><div class="cklabel">% Meta</div><div class="ckval cr" id="lp-pct">—</div><div class="cksub" id="lp-na">—</div></div>
-        <div><div class="cklabel">Cresc. 26×25</div><div class="ckval cg" id="lp-cresc">—</div><div class="cksub">vs ano anterior</div></div>
+        <div><div class="cklabel">Realizado</div><div class="ckval" style="color:var(--blue)" id="lp-real">R$ 1,53M</div><div class="cksub" id="lp-meta">Meta: R$ 2,16M</div></div>
+        <div><div class="cklabel">% Meta</div><div class="ckval cr" id="lp-pct">70.7%</div><div class="cksub" id="lp-na">0 na meta</div></div>
+        <div><div class="cklabel">Cresc. 26×25</div><div class="ckval cg" id="lp-cresc">+1.2%</div><div class="cksub">vs ano anterior</div></div>
       </div>
       <div class="ckpis ckdiv">
-        <div><div class="cklabel">NV 26</div><div class="ckval" id="lp-nv26">—</div><div class="cksub" id="lp-nv25">—</div></div>
-        <div><div class="cklabel">TM Médio</div><div class="ckval" id="lp-tm">—</div><div class="cksub">LP</div></div>
-        <div><div class="cklabel">PA Médio</div><div class="ckval" id="lp-pa">—</div><div class="cksub">pç/atend.</div></div>
+        <div><div class="cklabel">NV 26</div><div class="ckval" id="lp-nv26">8.825</div><div class="cksub" id="lp-nv25">NV 25: 9.684</div></div>
+        <div><div class="cklabel">TM Médio</div><div class="ckval" id="lp-tm">R$ 189,54</div><div class="cksub">LP</div></div>
+        <div><div class="cklabel">PA Médio</div><div class="ckval" id="lp-pa">2.17</div><div class="cksub">pç/atend.</div></div>
       </div>
     </div>
     <div class="ccard">
-      <div class="ccard-title">Franquias <span class="cpill pill-fr" id="fr-cnt">—</span></div>
+      <div class="ccard-title">Franquias <span class="cpill pill-fr" id="fr-cnt">38 Lojas</span></div>
       <div class="ckpis">
-        <div><div class="cklabel">Realizado</div><div class="ckval" style="color:var(--brand)" id="fr-real">—</div><div class="cksub" id="fr-meta">—</div></div>
-        <div><div class="cklabel">% Meta</div><div class="ckval cr" id="fr-pct">—</div><div class="cksub" id="fr-na">—</div></div>
-        <div><div class="cklabel">Cresc. 26×25</div><div class="ckval cg" id="fr-cresc">—</div><div class="cksub">vs ano anterior</div></div>
+        <div><div class="cklabel">Realizado</div><div class="ckval" style="color:var(--brand)" id="fr-real">R$ 2,46M</div><div class="cksub" id="fr-meta">Meta: R$ 3,35M</div></div>
+        <div><div class="cklabel">% Meta</div><div class="ckval cr" id="fr-pct">73.4%</div><div class="cksub" id="fr-na">1 na meta</div></div>
+        <div><div class="cklabel">Cresc. 26×25</div><div class="ckval cg" id="fr-cresc">+7.4%</div><div class="cksub">vs ano anterior</div></div>
       </div>
       <div class="ckpis ckdiv">
-        <div><div class="cklabel">NV 26</div><div class="ckval" id="fr-nv26">—</div><div class="cksub" id="fr-nv25">—</div></div>
-        <div><div class="cklabel">TM Médio</div><div class="ckval" id="fr-tm">—</div><div class="cksub">Franquia</div></div>
-        <div><div class="cklabel">PA Médio</div><div class="ckval" id="fr-pa">—</div><div class="cksub">pç/atend.</div></div>
+        <div><div class="cklabel">NV 26</div><div class="ckval" id="fr-nv26">14.459</div><div class="cksub" id="fr-nv25">NV 25: 14.695</div></div>
+        <div><div class="cklabel">TM Médio</div><div class="ckval" id="fr-tm">R$ 180,28</div><div class="cksub">Franquia</div></div>
+        <div><div class="cklabel">PA Médio</div><div class="ckval" id="fr-pa">2.09</div><div class="cksub">pç/atend.</div></div>
       </div>
     </div>
   </div>
@@ -289,8 +287,8 @@ table.gt{width:100%;border-collapse:collapse}
 <div id="page-crescimento" class="page"><div class="container">
   <div class="sec" id="sec-cresc">Crescimento 26×25</div>
   <div class="cresc-grid">
-    <div class="cpanel"><div class="chead up">▲ Top 10 Crescimento</div><div id="c-top"></div></div>
-    <div class="cpanel"><div class="chead dn">▼ Top 10 Detratoras</div><div id="c-bot"></div></div>
+    <div class="cpanel"><div class="chead up">▲ Top 10 Crescimento</div><div id="c-top"><div class="citem"><span class="crank">1</span><div class="cinfo"><div class="cnome">CONTAGEM - CONTAGEM SHOPPING</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+63.0%</span></div><div class="citem"><span class="crank">2</span><div class="cinfo"><div class="cnome">NATAL - SHOPPING ANCAR</div><div class="cmeta">LP · Ivana</div></div><span class="cpct cg">+29.9%</span></div><div class="citem"><span class="crank">3</span><div class="cinfo"><div class="cnome">BETIM - PARTAGE SHOPPING</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+27.5%</span></div><div class="citem"><span class="crank">4</span><div class="cinfo"><div class="cnome">PINHEIRO</div><div class="cmeta">Franquia · TBD</div></div><span class="cpct cg">+26.9%</span></div><div class="citem"><span class="crank">5</span><div class="cinfo"><div class="cnome">LAFAIETE</div><div class="cmeta">LP · GS</div></div><span class="cpct cg">+23.4%</span></div><div class="citem"><span class="crank">6</span><div class="cinfo"><div class="cnome">BH - MINAS SHOPPING</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+22.9%</span></div><div class="citem"><span class="crank">7</span><div class="cinfo"><div class="cnome">BH - VIA BARREIRO SHOPPING</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+22.5%</span></div><div class="citem"><span class="crank">8</span><div class="cinfo"><div class="cnome">BH - SHOPPING ESTAÇÃO</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+17.7%</span></div><div class="citem"><span class="crank">9</span><div class="cinfo"><div class="cnome">BH - SAVASSI</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+16.9%</span></div><div class="citem"><span class="crank">10</span><div class="cinfo"><div class="cnome">CONTAGEM - BIG SHOPPING</div><div class="cmeta">Franquia · GS</div></div><span class="cpct cg">+16.0%</span></div></div></div>
+    <div class="cpanel"><div class="chead dn">▼ Top 10 Detratoras</div><div id="c-bot"><div class="citem"><span class="crank">1</span><div class="cinfo"><div class="cnome">OURO FINO</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-38.3%</span></div><div class="citem"><span class="crank">2</span><div class="cinfo"><div class="cnome">FORTALEZA - VIA SUL SHOPPING</div><div class="cmeta">LP · Elisangela</div></div><span class="cpct cr">-35.7%</span></div><div class="citem"><span class="crank">3</span><div class="cinfo"><div class="cnome">ITAJUBA</div><div class="cmeta">LP · Ana Flávia</div></div><span class="cpct cr">-31.6%</span></div><div class="citem"><span class="crank">4</span><div class="cinfo"><div class="cnome">VARGINHA - CENTRO</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-31.1%</span></div><div class="citem"><span class="crank">5</span><div class="cinfo"><div class="cnome">SANTOS</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-30.6%</span></div><div class="citem"><span class="crank">6</span><div class="cinfo"><div class="cnome">MOGI GUAÇU - BURITI SHOPPING</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-28.0%</span></div><div class="citem"><span class="crank">7</span><div class="cinfo"><div class="cnome">MARACANAU</div><div class="cmeta">LP · Elisangela</div></div><span class="cpct cr">-26.8%</span></div><div class="citem"><span class="crank">8</span><div class="cinfo"><div class="cnome">SÃO JOÃO DA BOA VISTA</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-25.8%</span></div><div class="citem"><span class="crank">9</span><div class="cinfo"><div class="cnome">POUSO ALEGRE - CATEDRAL</div><div class="cmeta">LP · Luana</div></div><span class="cpct cr">-25.5%</span></div><div class="citem"><span class="crank">10</span><div class="cinfo"><div class="cnome">SJC - VALE SUL SHOPPING</div><div class="cmeta">Franquia · Jaqueline</div></div><span class="cpct cr">-23.6%</span></div></div></div>
   </div>
 </div></div>
 
@@ -300,24 +298,24 @@ table.gt{width:100%;border-collapse:collapse}
   <div class="nvtm-grid">
     <div class="ntcard">
       <div class="ntlabel">NÚMERO DE VENDAS · REDE</div>
-      <div class="ntbig" id="nv-big">—</div><div class="ntcomp" id="nv-comp">—</div>
-      <div class="ntdelta" id="nv-delta">—</div>
+      <div class="ntbig" id="nv-big">23.284</div><div class="ntcomp" id="nv-comp">2025: 24.379</div>
+      <div class="ntdelta kb-amber" id="nv-delta">▼ 1.095 vendas (-4.5%)</div>
       <div class="ntcanais">
-        <div><div class="ntcl">LP · NV 26</div><div class="ntcv" id="lp-nv-b">—</div><div class="ntcs" id="lp-nv-s">—</div></div>
-        <div><div class="ntcl">Franquia · NV 26</div><div class="ntcv" id="fr-nv-b">—</div><div class="ntcs" id="fr-nv-s">—</div></div>
+        <div><div class="ntcl">LP · NV 26</div><div class="ntcv" id="lp-nv-b">8.825</div><div class="ntcs" id="lp-nv-s">25: 9.684 · ▼ 8.9%</div></div>
+        <div><div class="ntcl">Franquia · NV 26</div><div class="ntcv" id="fr-nv-b">14.459</div><div class="ntcs" id="fr-nv-s">25: 14.695 · ▼ 1.6%</div></div>
       </div>
     </div>
     <div class="ntcard">
       <div class="ntlabel">TICKET MÉDIO · REDE</div>
-      <div class="ntbig" id="tm-big">—</div><div class="ntcomp">Meta TM: R$ 190,00</div>
-      <div class="ntdelta kb-amber" id="tm-delta">—</div>
+      <div class="ntbig" id="tm-big">R$ 183,68</div><div class="ntcomp">Meta TM: R$ 190,00</div>
+      <div class="ntdelta kb-amber" id="tm-delta">96.7% da meta · faltam R$ 6,32</div>
       <div class="ntcanais">
-        <div><div class="ntcl">LP · TM</div><div class="ntcv" id="lp-tm-b">—</div><div class="ntcs" id="lp-tm-s">—</div></div>
-        <div><div class="ntcl">Franquia · TM</div><div class="ntcv" id="fr-tm-b">—</div><div class="ntcs" id="fr-tm-s">—</div></div>
+        <div><div class="ntcl">LP · TM</div><div class="ntcv" id="lp-tm-b">R$ 189,54</div><div class="ntcs" id="lp-tm-s">abaixo da meta</div></div>
+        <div><div class="ntcl">Franquia · TM</div><div class="ntcv" id="fr-tm-b">R$ 180,28</div><div class="ntcs" id="fr-tm-s">abaixo da meta</div></div>
       </div>
       <div class="ntcanais" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
-        <div><div class="ntcl">PA · Rede</div><div class="ntcv" id="pa-rede">—</div></div>
-        <div><div class="ntcl">PA · LP</div><div class="ntcv" id="pa-lp">—</div></div>
+        <div><div class="ntcl">PA · Rede</div><div class="ntcv" id="pa-rede">2.12</div></div>
+        <div><div class="ntcl">PA · LP</div><div class="ntcv" id="pa-lp">2.17</div></div>
       </div>
     </div>
   </div>
@@ -327,9 +325,9 @@ table.gt{width:100%;border-collapse:collapse}
 <div id="page-ranking" class="page"><div class="container">
   <div class="sec" id="sec-rank">Ranking · Faturamento</div>
   <div class="rank-ctrl">
-    <button class="rf active" onclick="fRank('todos',this)">Todas</button>
-    <button class="rf" onclick="fRank('LP',this)">LP</button>
-    <button class="rf" onclick="fRank('Franquia',this)">Franquia</button>
+    <button class="rf active" onclick="fRank('todos',this)">Todas (61)</button>
+    <button class="rf" onclick="fRank('LP',this)">LP (23)</button>
+    <button class="rf" onclick="fRank('Franquia',this)">Franquia (38)</button>
   </div>
   <div class="rank-wrap">
     <table class="rt">
@@ -339,7 +337,7 @@ table.gt{width:100%;border-collapse:collapse}
         <th class="r">Fat. 26</th><th class="r">Fat. 25</th>
         <th class="r">TM</th><th class="r">% Meta</th>
       </tr></thead>
-      <tbody id="rank-body"></tbody>
+      <tbody id="rank-body"><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">1</td><td><div class="td-nome">BH - VIA BARREIRO SHOPPING</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 151,3K</td><td class="td-r td-r25">R$ 123,5K</td><td class="td-r td-tm">R$ 190,30</td><td class="td-r td-pct pct-a">92.4%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">2</td><td><div class="td-nome">IGARAPÉ</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 128,8K</td><td class="td-r td-r25">R$ 114,8K</td><td class="td-r td-tm">R$ 186,07</td><td class="td-r td-pct pct-a">82.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">3</td><td><div class="td-nome">POUSO ALEGRE - CATEDRAL</div><div class="td-gs">Luana</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 118,0K</td><td class="td-r td-r25">R$ 158,3K</td><td class="td-r td-tm">R$ 162,71</td><td class="td-r td-pct pct-r">59.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">4</td><td><div class="td-nome">MARACANAU</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 110,2K</td><td class="td-r td-r25">R$ 150,6K</td><td class="td-r td-tm">R$ 221,35</td><td class="td-r td-pct pct-a">74.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">5</td><td><div class="td-nome">POÇOS DE CALDAS - ASSIS</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 108,6K</td><td class="td-r td-r25">R$ 129,9K</td><td class="td-r td-tm">R$ 205,59</td><td class="td-r td-pct pct-a">65.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">6</td><td><div class="td-nome">BETIM - PARTAGE SHOPPING</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 107,0K</td><td class="td-r td-r25">R$ 83,9K</td><td class="td-r td-tm">R$ 190,06</td><td class="td-r td-pct pct-a">84.6%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">7</td><td><div class="td-nome">CONTAGEM - CONTAGEM SHOPPING</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 106,5K</td><td class="td-r td-r25">R$ 65,3K</td><td class="td-r td-tm">R$ 222,25</td><td class="td-r td-pct pct-g">100.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">8</td><td><div class="td-nome">BH - MINAS SHOPPING</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 101,3K</td><td class="td-r td-r25">R$ 82,4K</td><td class="td-r td-tm">R$ 208,46</td><td class="td-r td-pct pct-a">82.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">9</td><td><div class="td-nome">POUSO ALEGRE - BARONESA</div><div class="td-gs">Ana Flávia</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 100,2K</td><td class="td-r td-r25">R$ 105,9K</td><td class="td-r td-tm">R$ 186,19</td><td class="td-r td-pct pct-a">93.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">10</td><td><div class="td-nome">FORTALEZA - JOQUEI SHOPPING</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 98,9K</td><td class="td-r td-r25">R$ 105,7K</td><td class="td-r td-tm">R$ 195,45</td><td class="td-r td-pct pct-a">80.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">11</td><td><div class="td-nome">POUSO ALEGRE - COMENDADOR</div><div class="td-gs">Luana</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 88,1K</td><td class="td-r td-r25">R$ 77,3K</td><td class="td-r td-tm">R$ 179,89</td><td class="td-r td-pct pct-a">80.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">12</td><td><div class="td-nome">SJC - CENTER VALE SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 85,3K</td><td class="td-r td-r25">R$ 91,1K</td><td class="td-r td-tm">R$ 165,90</td><td class="td-r td-pct pct-a">73.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">13</td><td><div class="td-nome">POUSO ALEGRE - SERRASUL</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 84,7K</td><td class="td-r td-r25">R$ 79,9K</td><td class="td-r td-tm">R$ 180,16</td><td class="td-r td-pct pct-a">78.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">14</td><td><div class="td-nome">FORTALEZA - NORTH SHOPPING</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 83,0K</td><td class="td-r td-r25">R$ 100,0K</td><td class="td-r td-tm">R$ 192,57</td><td class="td-r td-pct pct-a">71.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">15</td><td><div class="td-nome">CAMPINA GRANDE - PATARGE SHOPPING</div><div class="td-gs">Ivana</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 82,2K</td><td class="td-r td-r25">R$ 90,4K</td><td class="td-r td-tm">R$ 197,98</td><td class="td-r td-pct pct-a">68.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">16</td><td><div class="td-nome">ITABIRITO</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 81,6K</td><td class="td-r td-r25">R$ 93,6K</td><td class="td-r td-tm">R$ 167,96</td><td class="td-r td-pct pct-a">74.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">17</td><td><div class="td-nome">SANTA RITA</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 80,7K</td><td class="td-r td-r25">R$ 79,7K</td><td class="td-r td-tm">R$ 201,71</td><td class="td-r td-pct pct-a">78.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">18</td><td><div class="td-nome">BH - SHOPPING ESTAÇÃO</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 80,7K</td><td class="td-r td-r25">R$ 68,5K</td><td class="td-r td-tm">R$ 225,35</td><td class="td-r td-pct pct-a">71.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">19</td><td><div class="td-nome">POUSO ALEGRE - ADOLFO</div><div class="td-gs">Luana</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 79,7K</td><td class="td-r td-r25">R$ 90,8K</td><td class="td-r td-tm">R$ 175,96</td><td class="td-r td-pct pct-a">69.3%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">20</td><td><div class="td-nome">SAO LOURENCO</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 73,8K</td><td class="td-r td-r25">R$ 88,3K</td><td class="td-r td-tm">R$ 160,78</td><td class="td-r td-pct pct-a">65.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">21</td><td><div class="td-nome">VALPARAISO</div><div class="td-gs">TBD</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 73,4K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 215,17</td><td class="td-r td-pct pct-a">83.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">22</td><td><div class="td-nome">NATAL - SHOPPING ANCAR</div><div class="td-gs">Ivana</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 72,9K</td><td class="td-r td-r25">R$ 56,2K</td><td class="td-r td-tm">R$ 221,72</td><td class="td-r td-pct pct-a">72.4%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">23</td><td><div class="td-nome">CONTAGEM - BIG SHOPPING</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 71,5K</td><td class="td-r td-r25">R$ 61,7K</td><td class="td-r td-tm">R$ 184,33</td><td class="td-r td-pct pct-a">93.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">24</td><td><div class="td-nome">OURO PRETO</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 68,8K</td><td class="td-r td-r25">R$ 75,6K</td><td class="td-r td-tm">R$ 224,74</td><td class="td-r td-pct pct-a">68.8%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">25</td><td><div class="td-nome">SJC - VALE SUL SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 64,9K</td><td class="td-r td-r25">R$ 85,0K</td><td class="td-r td-tm">R$ 173,61</td><td class="td-r td-pct pct-a">63.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">26</td><td><div class="td-nome">TAUBATE - SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 62,5K</td><td class="td-r td-r25">R$ 76,3K</td><td class="td-r td-tm">R$ 158,75</td><td class="td-r td-pct pct-a">68.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">27</td><td><div class="td-nome">BH - VIABRASIL PAMPULHA</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 62,4K</td><td class="td-r td-r25">R$ 54,7K</td><td class="td-r td-tm">R$ 164,69</td><td class="td-r td-pct pct-a">74.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">28</td><td><div class="td-nome">JUNDIAÍ - MAXI SHOPPING</div><div class="td-gs">Jamila</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 61,5K</td><td class="td-r td-r25">R$ 61,3K</td><td class="td-r td-tm">R$ 184,20</td><td class="td-r td-pct pct-a">61.4%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">29</td><td><div class="td-nome">ITAJUBA</div><div class="td-gs">Ana Flávia</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 61,5K</td><td class="td-r td-r25">R$ 89,9K</td><td class="td-r td-tm">R$ 161,79</td><td class="td-r td-pct pct-r">56.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">30</td><td><div class="td-nome">BH - SAVASSI</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 61,1K</td><td class="td-r td-r25">R$ 52,3K</td><td class="td-r td-tm">R$ 180,27</td><td class="td-r td-pct pct-a">65.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">31</td><td><div class="td-nome">CAMPINAS - PARQUE DAS BANDEIRAS</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 60,2K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 202,85</td><td class="td-r td-pct pct-a">77.8%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">32</td><td><div class="td-nome">BRASÍLIA - PARK SHOPPING</div><div class="td-gs">TBD</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 58,2K</td><td class="td-r td-r25">R$ 64,9K</td><td class="td-r td-tm">R$ 207,77</td><td class="td-r td-pct pct-a">63.3%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">33</td><td><div class="td-nome">PINHEIRO</div><div class="td-gs">TBD</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 58,0K</td><td class="td-r td-r25">R$ 45,7K</td><td class="td-r td-tm">R$ 158,78</td><td class="td-r td-pct pct-a">95.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">34</td><td><div class="td-nome">LAFAIETE</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 57,3K</td><td class="td-r td-r25">R$ 46,4K</td><td class="td-r td-tm">R$ 231,91</td><td class="td-r td-pct pct-a">75.7%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">35</td><td><div class="td-nome">POÇOS DE CALDAS - RIO</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 57,0K</td><td class="td-r td-r25">R$ 61,7K</td><td class="td-r td-tm">R$ 172,76</td><td class="td-r td-pct pct-a">71.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">36</td><td><div class="td-nome">MOGI GUAÇU - BURITI SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 56,7K</td><td class="td-r td-r25">R$ 78,7K</td><td class="td-r td-tm">R$ 201,00</td><td class="td-r td-pct pct-a">63.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">37</td><td><div class="td-nome">ALFENAS</div><div class="td-gs">Ana Flávia</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 56,4K</td><td class="td-r td-r25">R$ 52,4K</td><td class="td-r td-tm">R$ 211,20</td><td class="td-r td-pct pct-a">74.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">38</td><td><div class="td-nome">CAMBUI</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 55,5K</td><td class="td-r td-r25">R$ 67,0K</td><td class="td-r td-tm">R$ 183,14</td><td class="td-r td-pct pct-a">67.4%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">39</td><td><div class="td-nome">SAO BERNARDO DO CAMPO - PLAZA SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 54,9K</td><td class="td-r td-r25">R$ 47,6K</td><td class="td-r td-tm">R$ 184,71</td><td class="td-r td-pct pct-a">68.6%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">40</td><td><div class="td-nome">JOÃO PESSOA - MAG SHOPPING</div><div class="td-gs">Ivana</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 53,9K</td><td class="td-r td-r25">R$ 58,4K</td><td class="td-r td-tm">R$ 169,97</td><td class="td-r td-pct pct-a">68.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">41</td><td><div class="td-nome">JACAREÍ</div><div class="td-gs">Jamila</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 53,8K</td><td class="td-r td-r25">R$ 56,2K</td><td class="td-r td-tm">R$ 151,53</td><td class="td-r td-pct pct-a">70.7%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">42</td><td><div class="td-nome">SJC - JARDIM ORIENTE SHOPPING</div><div class="td-gs">Jamila</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 52,0K</td><td class="td-r td-r25">R$ 46,5K</td><td class="td-r td-tm">R$ 162,03</td><td class="td-r td-pct pct-a">85.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">43</td><td><div class="td-nome">POÇOS DE CALDAS - SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 51,1K</td><td class="td-r td-r25">R$ 62,0K</td><td class="td-r td-tm">R$ 161,24</td><td class="td-r td-pct pct-a">65.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">44</td><td><div class="td-nome">JUNDIAÍ - CENTRO</div><div class="td-gs">Jamila</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 51,0K</td><td class="td-r td-r25">R$ 57,7K</td><td class="td-r td-tm">R$ 195,54</td><td class="td-r td-pct pct-r">55.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">45</td><td><div class="td-nome">POÇOS DE CALDAS - SALLES</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 50,6K</td><td class="td-r td-r25">R$ 44,3K</td><td class="td-r td-tm">R$ 181,43</td><td class="td-r td-pct pct-a">68.8%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">46</td><td><div class="td-nome">VARGINHA - VIA CAFÉ SHOPPING</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 49,9K</td><td class="td-r td-r25">R$ 55,6K</td><td class="td-r td-tm">R$ 153,54</td><td class="td-r td-pct pct-a">84.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">47</td><td><div class="td-nome">CAUCAIA - IANDÊ SHOPPING</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 48,6K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 176,08</td><td class="td-r td-pct pct-a">96.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">48</td><td><div class="td-nome">FORTALEZA - VIA SUL SHOPPING</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 48,6K</td><td class="td-r td-r25">R$ 75,6K</td><td class="td-r td-tm">R$ 173,42</td><td class="td-r td-pct pct-a">62.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">49</td><td><div class="td-nome">NATAL - PARTAGE NORTE SHOPPING</div><div class="td-gs">Ivana</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 48,5K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 169,12</td><td class="td-r td-pct pct-a">77.9%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">50</td><td><div class="td-nome">VARGINHA - CENTRO</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 42,9K</td><td class="td-r td-r25">R$ 62,2K</td><td class="td-r td-tm">R$ 138,69</td><td class="td-r td-pct pct-a">65.7%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">51</td><td><div class="td-nome">SAO PAULO - JARDIM SUL</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 38,7K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 199,50</td><td class="td-r td-pct pct-r">51.6%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">52</td><td><div class="td-nome">FORTALEZA - SOLARES SHOPPING</div><div class="td-gs">Elisangela</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">R$ 37,5K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 169,56</td><td class="td-r td-pct pct-a">76.6%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">53</td><td><div class="td-nome">BOA ESPERANÇA</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 36,2K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 166,70</td><td class="td-r td-pct pct-a">77.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">54</td><td><div class="td-nome">SÃO JOÃO DA BOA VISTA</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 36,2K</td><td class="td-r td-r25">R$ 48,8K</td><td class="td-r td-tm">R$ 189,38</td><td class="td-r td-pct pct-r">54.6%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">55</td><td><div class="td-nome">SÃO GONÇALO DO SAPUCAÍ</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 34,3K</td><td class="td-r td-r25">R$ 43,5K</td><td class="td-r td-tm">R$ 155,42</td><td class="td-r td-pct pct-a">63.7%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">56</td><td><div class="td-nome">CAMPINA GRANDE - HIPER IDEAL</div><div class="td-gs">Ivana</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 30,6K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 181,22</td><td class="td-r td-pct pct-a">68.1%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">57</td><td><div class="td-nome">DIAMANTINA</div><div class="td-gs">GS</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 28,1K</td><td class="td-r td-r25">—</td><td class="td-r td-tm">R$ 175,58</td><td class="td-r td-pct pct-a">73.2%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">58</td><td><div class="td-nome">SANTOS</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 24,7K</td><td class="td-r td-r25">R$ 35,6K</td><td class="td-r td-tm">R$ 161,32</td><td class="td-r td-pct pct-r">45.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">59</td><td><div class="td-nome">PASSOS</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 24,7K</td><td class="td-r td-r25">R$ 24,5K</td><td class="td-r td-tm">R$ 200,46</td><td class="td-r td-pct pct-a">76.5%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">60</td><td><div class="td-nome">OURO FINO</div><div class="td-gs">Jaqueline</div></td><td class="td-c"><span class="tpill pill-fr">Franquia</span></td><td class="td-r td-fat">R$ 20,2K</td><td class="td-r td-r25">R$ 32,8K</td><td class="td-r td-tm">R$ 148,79</td><td class="td-r td-pct pct-r">49.0%</td></tr><tr><td class="td-c" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">61</td><td><div class="td-nome">BRAGANÇA - SHOPPING CENTER BRAGANÇA</div><div class="td-gs">Jamila</div></td><td class="td-c"><span class="tpill pill-lp">LP</span></td><td class="td-r td-fat">—</td><td class="td-r td-r25">R$ 38,0K</td><td class="td-r td-tm">—</td><td class="td-r td-pct pct-r">0.0%</td></tr></tbody>
     </table>
   </div>
   <div class="leg">
@@ -354,7 +352,11 @@ table.gt{width:100%;border-collapse:collapse}
 <!-- GERAL 2026 -->
 <div id="page-geral" class="page"><div class="container">
   <div class="sec">Consolidado Anual · Rede</div>
-  <div class="geral-kpis" id="geral-kpis"></div>
+  <div class="geral-kpis" id="geral-kpis">
+    <div class="gkcard"><div class="gklabel">Realizado 2026 (acumulado)</div><div class="gkval" style="color:var(--brand)">R$ 16,57M</div><div class="gksub">Meta: R$ 19,56M</div><div class="gkcard-accent" style="background:var(--brand)"></div></div>
+    <div class="gkcard"><div class="gklabel">% Meta 2026</div><div class="gkval" style="color:var(--amber)">84.7%</div><div class="gksub">Meses com dado</div><div class="gkcard-accent" style="background:#f0a000"></div></div>
+    <div class="gkcard"><div class="gklabel">Crescimento 26×25</div><div class="gkval" style="color:var(--red)">-63.40%</div><div class="gksub">Realizado 25: R$ 45,28M</div><div class="gkcard-accent" style="background:var(--red)"></div></div>
+  </div>
   <div class="sec">Comparativo Mensal · 2024 · 2025 · 2026</div>
   <div class="geral-table-wrap">
     <table class="gt">
@@ -368,14 +370,131 @@ table.gt{width:100%;border-collapse:collapse}
         <th class="r">Real 2026</th>
         <th class="r">% 2026</th>
       </tr></thead>
-      <tbody id="geral-body"></tbody>
+      <tbody id="geral-body"><tr>
+      <td style="font-weight:700">Jan</td>
+      <td class="r">R$ 2,53M</td>
+      <td class="r">R$ 3,06M</td>
+      <td class="r">R$ 2,63M</td>
+      <td class="pct"><span class="pct-a">85.9%</span></td>
+      <td class="r">R$ 3,75M</td>
+      <td class="r">R$ 3,07M</td>
+      <td class="pct"><span class="pct-a">81.9%</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Fev</td>
+      <td class="r">R$ 2,30M</td>
+      <td class="r">R$ 2,58M</td>
+      <td class="r">R$ 2,54M</td>
+      <td class="pct"><span class="pct-a">98.2%</span></td>
+      <td class="r">R$ 2,86M</td>
+      <td class="r">R$ 2,66M</td>
+      <td class="pct"><span class="pct-a">93.1%</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Mar</td>
+      <td class="r">R$ 2,92M</td>
+      <td class="r">R$ 3,22M</td>
+      <td class="r">R$ 3,13M</td>
+      <td class="pct"><span class="pct-a">97.2%</span></td>
+      <td class="r">R$ 3,55M</td>
+      <td class="r">R$ 3,49M</td>
+      <td class="pct"><span class="pct-a">98.4%</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Abr</td>
+      <td class="r">R$ 2,98M</td>
+      <td class="r">R$ 3,68M</td>
+      <td class="r">R$ 3,10M</td>
+      <td class="pct"><span class="pct-a">84.2%</span></td>
+      <td class="r">R$ 3,89M</td>
+      <td class="r">R$ 3,36M</td>
+      <td class="pct"><span class="pct-a">86.5%</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Mai</td>
+      <td class="r">R$ 4,17M</td>
+      <td class="r">R$ 4,88M</td>
+      <td class="r">R$ 4,42M</td>
+      <td class="pct"><span class="pct-a">90.6%</span></td>
+      <td class="r">R$ 5,51M</td>
+      <td class="r">R$ 3,99M</td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Jun</td>
+      <td class="r">R$ 3,42M</td>
+      <td class="r">R$ 4,15M</td>
+      <td class="r">R$ 3,56M</td>
+      <td class="pct"><span class="pct-a">85.8%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Jul</td>
+      <td class="r">R$ 3,15M</td>
+      <td class="r">R$ 3,80M</td>
+      <td class="r">R$ 3,32M</td>
+      <td class="pct"><span class="pct-a">87.3%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Ago</td>
+      <td class="r">R$ 3,15M</td>
+      <td class="r">R$ 3,78M</td>
+      <td class="r">R$ 3,37M</td>
+      <td class="pct"><span class="pct-a">89.1%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Set</td>
+      <td class="r">R$ 2,86M</td>
+      <td class="r">R$ 3,39M</td>
+      <td class="r">R$ 3,26M</td>
+      <td class="pct"><span class="pct-a">96.2%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Out</td>
+      <td class="r">R$ 3,14M</td>
+      <td class="r">R$ 3,49M</td>
+      <td class="r">R$ 3,09M</td>
+      <td class="pct"><span class="pct-a">88.5%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Nov</td>
+      <td class="r">R$ 3,70M</td>
+      <td class="r">R$ 4,47M</td>
+      <td class="r">R$ 4,57M</td>
+      <td class="pct"><span class="pct-g">102.3%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr>
+      <td style="font-weight:700">Dez</td>
+      <td class="r">R$ 8,00M</td>
+      <td class="r">R$ 10,48M</td>
+      <td class="r">R$ 8,29M</td>
+      <td class="pct"><span class="pct-a">79.1%</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="r"><span class="sem-dado">—</span></td>
+      <td class="pct"><span class="sem-dado">—</span></td>
+    </tr><tr class="total-row">
+    <td>TOTAL</td>
+    <td class="r">R$ 42,32M</td>
+    <td class="r">R$ 50,98M</td>
+    <td class="r">R$ 45,28M</td>
+    <td class="pct"><span class="pct-a">90.4%</span></td>
+    <td class="r">R$ 19,56M</td>
+    <td class="r">R$ 16,57M</td>
+    <td class="pct"></td>
+  </tr></tbody>
     </table>
   </div>
 </div></div>
 
 <div class="footer">
   <div class="footer-b">RAHRA SEMIJOIAS</div>
-  <div class="footer-i" id="footer-info">Gerenciamento de Resultados de Rede · 2026</div>
+  <div class="footer-i" id="footer-info">Gerenciamento de Resultados de Rede · Maio 2026</div>
 </div>
 
 <script>
@@ -768,8 +887,8 @@ async function salvarNoGitHub(msg,btn){
 
 <div class="gear-btn" onclick="openModal()" title="Atualizar dados">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="3"/>
-    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    <circle cx="12" cy="12" r="3"></circle>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
   </svg>
 </div>
 
@@ -806,11 +925,12 @@ async function salvarNoGitHub(msg,btn){
         <label>Arquivo .xlsx</label>
         <input type="file" id="input-file" accept=".xlsx" onchange="onFileSelect()">
       </div>
-      <button class="modal-btn" id="btn-processar" onclick="processarXlsx()" disabled>Processar e Atualizar</button>
-      <div class="modal-msg" id="msg-upload"></div>
+      <button class="modal-btn" id="btn-processar" onclick="processarXlsx()" disabled="">Processar e Atualizar</button>
+      <div class="modal-msg ok" id="msg-upload">Dados carregados. Salvando no GitHub...</div>
     </div>
   </div>
 </div>
 
-</body>
-</html>
+
+
+</body></html>
