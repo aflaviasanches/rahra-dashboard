@@ -136,7 +136,15 @@ table.rt{width:100%;border-collapse:collapse}
 .leg-i{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px}
 .dot{width:10px;height:10px;border-radius:3px}
 /* GERAL */
-.geral-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.geral-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:16px}
+.geral-kpis .gkcard{padding:20px 18px}.geral-kpis .gkval{font-size:26px;white-space:nowrap}
+.gbar{height:10px;background:#efecea;border-radius:6px;margin-top:12px;overflow:hidden}.gbar i{display:block;height:100%;border-radius:6px}
+.gstrip{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:28px}
+.gstrip-row{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink2);margin-bottom:8px}
+.gstrip-bar{height:16px;background:#efecea;border-radius:8px;overflow:hidden}.gstrip-bar i{display:block;height:100%;background:var(--brand);border-radius:8px}
+.gpl{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px}
+.gpl.up{background:var(--green-bg);color:var(--green)}.gpl.dn{background:var(--red-bg);color:var(--red)}
+.gt tbody tr.cur{background:#fff9ec}.gfn{font-size:11px;color:var(--muted);margin-top:8px}
 .gkcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;position:relative;overflow:hidden}
 .gkcard-accent{position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 var(--r) var(--r)}
 .gklabel{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
@@ -351,147 +359,24 @@ table.gt{width:100%;border-collapse:collapse}
 
 <!-- GERAL 2026 -->
 <div id="page-geral" class="page"><div class="container">
-  <div class="sec">Consolidado Anual · Rede</div>
-  <div class="geral-kpis" id="geral-kpis">
-    <div class="gkcard"><div class="gklabel">Realizado 2026 (acumulado)</div><div class="gkval" style="color:var(--brand)">R$ 16,57M</div><div class="gksub">Meta: R$ 19,56M</div><div class="gkcard-accent" style="background:var(--brand)"></div></div>
-    <div class="gkcard"><div class="gklabel">% Meta 2026</div><div class="gkval" style="color:var(--amber)">84.7%</div><div class="gksub">Meses com dado</div><div class="gkcard-accent" style="background:#f0a000"></div></div>
-    <div class="gkcard"><div class="gklabel">Crescimento 26×25</div><div class="gkval" style="color:var(--red)">-63.40%</div><div class="gksub">Realizado 25: R$ 45,28M</div><div class="gkcard-accent" style="background:var(--red)"></div></div>
-    <div class="gkcard" id="gk-cresc-anual"><div class="gklabel">Crescimento Rede (anual)</div><div class="gkval">--</div><div class="gksub">Média mensal 25×26 · aba 2026</div><div class="gkcard-accent"></div></div>
-    <div class="gkcard" id="gk-sss-anual"><div class="gklabel">SSS Anual</div><div class="gkval">--</div><div class="gksub">Lojas comparáveis · aba 2026</div><div class="gkcard-accent"></div></div>
-  </div>
-  <div class="sec">Comparativo Mensal · 2024 · 2025 · 2026</div>
+  <div class="sec">Geral 2026 · Rede</div>
+  <div class="geral-kpis" id="geral-kpis"></div>
+  <div id="geral-strip"></div>
+  <div class="sec">Comparativo Mensal · Realizado 2024 · 2025 · 2026</div>
   <div class="geral-table-wrap">
     <table class="gt">
       <thead><tr>
-        <th style="width:70px">Mês</th>
+        <th style="width:170px">Mês</th>
         <th class="r">Real 2024</th>
-        <th class="r">Meta 2025</th>
         <th class="r">Real 2025</th>
-        <th class="r">% 2025</th>
-        <th class="r">Meta 2026</th>
         <th class="r">Real 2026</th>
-        <th class="r">% 2026</th>
+        <th class="r">Cresc. 25×24</th>
+        <th class="r">Cresc. 26×25</th>
       </tr></thead>
-      <tbody id="geral-body"><tr>
-      <td style="font-weight:700">Jan</td>
-      <td class="r">R$ 2,53M</td>
-      <td class="r">R$ 3,06M</td>
-      <td class="r">R$ 2,63M</td>
-      <td class="pct"><span class="pct-a">85.9%</span></td>
-      <td class="r">R$ 3,75M</td>
-      <td class="r">R$ 3,07M</td>
-      <td class="pct"><span class="pct-a">81.9%</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Fev</td>
-      <td class="r">R$ 2,30M</td>
-      <td class="r">R$ 2,58M</td>
-      <td class="r">R$ 2,54M</td>
-      <td class="pct"><span class="pct-a">98.2%</span></td>
-      <td class="r">R$ 2,86M</td>
-      <td class="r">R$ 2,66M</td>
-      <td class="pct"><span class="pct-a">93.1%</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Mar</td>
-      <td class="r">R$ 2,92M</td>
-      <td class="r">R$ 3,22M</td>
-      <td class="r">R$ 3,13M</td>
-      <td class="pct"><span class="pct-a">97.2%</span></td>
-      <td class="r">R$ 3,55M</td>
-      <td class="r">R$ 3,49M</td>
-      <td class="pct"><span class="pct-a">98.4%</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Abr</td>
-      <td class="r">R$ 2,98M</td>
-      <td class="r">R$ 3,68M</td>
-      <td class="r">R$ 3,10M</td>
-      <td class="pct"><span class="pct-a">84.2%</span></td>
-      <td class="r">R$ 3,89M</td>
-      <td class="r">R$ 3,36M</td>
-      <td class="pct"><span class="pct-a">86.5%</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Mai</td>
-      <td class="r">R$ 4,17M</td>
-      <td class="r">R$ 4,88M</td>
-      <td class="r">R$ 4,42M</td>
-      <td class="pct"><span class="pct-a">90.6%</span></td>
-      <td class="r">R$ 5,51M</td>
-      <td class="r">R$ 3,99M</td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Jun</td>
-      <td class="r">R$ 3,42M</td>
-      <td class="r">R$ 4,15M</td>
-      <td class="r">R$ 3,56M</td>
-      <td class="pct"><span class="pct-a">85.8%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Jul</td>
-      <td class="r">R$ 3,15M</td>
-      <td class="r">R$ 3,80M</td>
-      <td class="r">R$ 3,32M</td>
-      <td class="pct"><span class="pct-a">87.3%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Ago</td>
-      <td class="r">R$ 3,15M</td>
-      <td class="r">R$ 3,78M</td>
-      <td class="r">R$ 3,37M</td>
-      <td class="pct"><span class="pct-a">89.1%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Set</td>
-      <td class="r">R$ 2,86M</td>
-      <td class="r">R$ 3,39M</td>
-      <td class="r">R$ 3,26M</td>
-      <td class="pct"><span class="pct-a">96.2%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Out</td>
-      <td class="r">R$ 3,14M</td>
-      <td class="r">R$ 3,49M</td>
-      <td class="r">R$ 3,09M</td>
-      <td class="pct"><span class="pct-a">88.5%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Nov</td>
-      <td class="r">R$ 3,70M</td>
-      <td class="r">R$ 4,47M</td>
-      <td class="r">R$ 4,57M</td>
-      <td class="pct"><span class="pct-g">102.3%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr>
-      <td style="font-weight:700">Dez</td>
-      <td class="r">R$ 8,00M</td>
-      <td class="r">R$ 10,48M</td>
-      <td class="r">R$ 8,29M</td>
-      <td class="pct"><span class="pct-a">79.1%</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="r"><span class="sem-dado">—</span></td>
-      <td class="pct"><span class="sem-dado">—</span></td>
-    </tr><tr class="total-row">
-    <td>TOTAL</td>
-    <td class="r">R$ 42,32M</td>
-    <td class="r">R$ 50,98M</td>
-    <td class="r">R$ 45,28M</td>
-    <td class="pct"><span class="pct-a">90.4%</span></td>
-    <td class="r">R$ 19,56M</td>
-    <td class="r">R$ 16,57M</td>
-    <td class="pct"></td>
-  </tr></tbody>
+      <tbody id="geral-body"></tbody>
     </table>
   </div>
+  <div class="gfn" id="geral-fn"></div>
 </div></div>
 
 <div class="footer">
@@ -601,7 +486,8 @@ function handleFile(input) {
             r2026_meta: +tot(rowsG[31],13).toFixed(2),
             r2026_real: +tot(rowsG[33],13).toFixed(2),
           };
-          GERAL = {meses: newGeral, totais: newTotais, crescAnualRede, sssAnualRede};
+          const metaAnual=+tot(rowsG[29],13).toFixed(2);
+          GERAL = {meses: newGeral, totais: newTotais, crescAnualRede, sssAnualRede, metaAnual};
         } catch(e) { console.warn('Geral parse error:', e); }
       } else {
         GERAL = {...GERAL, crescAnualRede, sssAnualRede};
@@ -637,6 +523,32 @@ function handleFile(input) {
               lp_sss: sssCol!==null&&typeof rLP[sssCol]==='number'?+(rLP[sssCol]*100).toFixed(4):null,
               lp_tm:  tmCol!==null&&typeof rLP[tmCol]==='number'?+rLP[tmCol].toFixed(2):null,
             };
+            // Totais do quadro (linha Total): 2026 e 2025 na MESMA data de corte
+            let c26=null,c25=null;
+            for (let cc=cq; cc<cq+12 && cc<r.length; cc++) {
+              const val=(r[cc]||'').toString().trim();
+              if(val==='2026'&&c26===null) c26=cc;
+              if(val==='2025'&&c25===null) c25=cc;
+            }
+            const rTot=allRows2[ri+3];
+            const nz=(row,c)=>row&&c!==null&&typeof row[c]==='number'?row[c]:null;
+            let t26=nz(rTot,c26), t25=nz(rTot,c25);
+            if(t26===null){const x=nz(rFr,c26),y=nz(rLP,c26); if(x!==null&&y!==null) t26=x+y;}
+            if(t25===null){const x=nz(rFr,c25),y=nz(rLP,c25); if(x!==null&&y!==null) t25=x+y;}
+            dataset[mesKey].resumo_oficial.tot26=t26!==null?+t26.toFixed(2):null;
+            dataset[mesKey].resumo_oficial.tot25=t25!==null?+t25.toFixed(2):null;
+          }
+        }
+        // Dias do mês x dias realizados (bloco "Outubro 31 / Realizado 11") -> data de corte
+        const MN=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+        for (let ri=0; ri<allRows2.length-1; ri++) {
+          const r=allRows2[ri]; if(!r) continue;
+          for (let cc=0; cc<r.length-1; cc++) {
+            const nm=(r[cc]||'').toString().trim().toLowerCase();
+            if(!MN.includes(nm)) continue;
+            const diasMes=r[cc+1], rB=allRows2[ri+1];
+            if(typeof diasMes!=='number'||!rB||(rB[cc]||'').toString().trim().toLowerCase()!=='realizado'||typeof rB[cc+1]!=='number') continue;
+            for(const k of meses){ if(nm.startsWith(k.toLowerCase().slice(0,3))&&dataset[k]&&!dataset[k].dias) dataset[k].dias={mes:diasMes,real:rB[cc+1]}; }
           }
         }
       } catch(e){console.warn('Resumo oficial parse error:',e);}
@@ -697,7 +609,7 @@ function renderFechamento(){
   set('k-cresc',(crescVal>=0?'+':'')+crescVal.toFixed(2)+'%');
   id('k-cresc').className='kval '+(crescVal>=0?'green':'red');
   set('k-cresc-s','Lojas comparáveis vs ano anterior');
-  const sssOk = (ro3.lp_sss!=null&&ro3.fr_sss!=null) ? ((ro3.lp_sss+ro3.fr_sss)/2) : ss;
+  const sssOk = ss;
   set('k-sss-b',sssOk!==null?'SSS: '+(sssOk>=0?'+':'')+sssOk.toFixed(2)+'%':'SSS: n/d');
   set('k-na-meta',t.naMeta); set('k-lojas-s','de '+t.total+' lojas ativas');
   set('k-topo','Topo: '+Math.max(...d.lojas.map(l=>l.pct)).toFixed(1)+'%');
@@ -800,46 +712,52 @@ function renderRanking(f){
 function fRank(f,btn){document.querySelectorAll('.rf').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRanking(f);}
 
 function renderGeral(){
-  const g=GERAL,t=g.totais;
-  // KPIs acumulados
-  const real26acum=g.meses.reduce((s,m)=>s+m.r2026_real,0);
-  const meta26acum=g.meses.reduce((s,m)=>s+m.r2026_meta,0);
-  const real25acum=g.meses.reduce((s,m)=>s+m.r2025_real,0);
-  const pct26acum=meta26acum>0?real26acum/meta26acum*100:0;
-  const cresc2625=real25acum>0?(real26acum/real25acum-1)*100:0;
-  set('geral-kpis',`
-    <div class="gkcard"><div class="gklabel">Realizado 2026 (acumulado)</div><div class="gkval" style="color:var(--brand)">${fmtM(real26acum)}</div><div class="gksub">Meta: ${fmtM(meta26acum)}</div><div class="gkcard-accent" style="background:var(--brand)"></div></div>
-    <div class="gkcard"><div class="gklabel">% Meta 2026</div><div class="gkval" style="color:${pC(pct26acum)==='pct-g'?'var(--green)':pC(pct26acum)==='pct-a'?'var(--amber)':'var(--red)'}">${pct26acum.toFixed(1)}%</div><div class="gksub">Meses com dado</div><div class="gkcard-accent" style="background:${pBarBg(pct26acum)}"></div></div>
-    <div class="gkcard"><div class="gklabel">Crescimento 26×25</div><div class="gkval" style="color:${cresc2625>=0?'var(--green)':'var(--red)'}">${(cresc2625>=0?'+':'')+cresc2625.toFixed(2)}%</div><div class="gksub">Realizado 25: ${fmtM(real25acum)}</div><div class="gkcard-accent" style="background:${cresc2625>=0?'var(--green)':'var(--red)'}"></div></div>
-    ${g.crescAnualRede!=null?`<div class="gkcard"><div class="gklabel">Crescimento Rede (anual)</div><div class="gkval" style="color:${g.crescAnualRede>=0?'var(--green)':'var(--red)'}">${(g.crescAnualRede>=0?'+':'')+g.crescAnualRede.toFixed(2)}%</div><div class="gksub">Média mensal 25×26 · aba 2026</div><div class="gkcard-accent" style="background:${g.crescAnualRede>=0?'var(--green)':'var(--red)'}"></div></div>`:''}
-    ${g.sssAnualRede!=null?`<div class="gkcard"><div class="gklabel">SSS Anual</div><div class="gkval" style="color:${g.sssAnualRede>=0?'var(--green)':'var(--red)'}">${(g.sssAnualRede>=0?'+':'')+g.sssAnualRede.toFixed(2)}%</div><div class="gksub">Lojas comparáveis · aba 2026</div><div class="gkcard-accent" style="background:${g.sssAnualRede>=0?'var(--green)':'var(--red)'}"></div></div>`:''}
-  `);
-  const semDado='<span class="sem-dado">—</span>';
-  const pctFmt=(v,cls)=>v>0?`<span class="${cls}">${v.toFixed(1)}%</span>`:semDado;
-  set('geral-body', g.meses.map(m=>{
-    const tem25=m.r2025_real>0, tem26=m.r2026_real>0;
-    return `<tr>
-      <td style="font-weight:700">${m.mes}</td>
-      <td class="r">${m.r2024>0?fmtM(m.r2024):semDado}</td>
-      <td class="r">${m.r2025_meta>0?fmtM(m.r2025_meta):semDado}</td>
-      <td class="r">${tem25?fmtM(m.r2025_real):semDado}</td>
-      <td class="pct">${tem25?pctFmt(m.r2025_pct,pC(m.r2025_pct)):semDado}</td>
-      <td class="r">${m.r2026_meta>0?fmtM(m.r2026_meta):semDado}</td>
-      <td class="r">${tem26?fmtM(m.r2026_real):semDado}</td>
-      <td class="pct">${tem26?pctFmt(m.r2026_pct,pC(m.r2026_pct)):semDado}</td>
-    </tr>`;
-  }).join('') + `<tr class="total-row">
-    <td>TOTAL</td>
-    <td class="r">${fmtM(t.r2024)}</td>
-    <td class="r">${fmtM(t.r2025_meta)}</td>
-    <td class="r">${fmtM(t.r2025_real)}</td>
-    <td class="pct">${pctFmt(t.r2025_pct,pC(t.r2025_pct))}</td>
-    <td class="r">${fmtM(t.r2026_meta)}</td>
-    <td class="r">${fmtM(t.r2026_real)}</td>
-    <td class="pct"></td>
-  </tr>`);
+  const g=GERAL, t=g.totais||{};
+  const mL=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+  const mesAtual=(DB.meses&&DB.meses[DB.meses.length-1])||'';
+  const dsA=(DB.dataset&&DB.dataset[mesAtual])||{};
+  const ro=dsA.resumo_oficial||{};
+  const iA=mL.findIndex(x=>mesAtual.toLowerCase().startsWith(x.toLowerCase()));
+  const mA=iA>=0?g.meses[iA]:null;
+  // Realizado 2026 acumulado e 2025 na MESMA data de corte (mês atual = base 2025 do próprio quadro)
+  const real26=g.meses.reduce((s,m)=>s+(m.r2026_real||0),0);
+  const cheio25=mA?mA.r2025_real:0;
+  let base25=ro.tot25>0?ro.tot25:(dsA.lojas?dsA.lojas.reduce((s,l)=>s+(l.r25||0),0):0);
+  if(!(base25>0)) base25=cheio25;
+  const real25=g.meses.reduce((s,m,i)=>s+(iA>=0&&i<iA?(m.r2025_real||0):0),0)+(iA>=0?base25:0);
+  const dias=dsA.dias||null;
+  const parcial=dias?dias.real<dias.mes:(cheio25>0&&base25<cheio25*0.98);
+  const corte=(dias&&iA>=0)?String(dias.real).padStart(2,'0')+'/'+String(iA+1).padStart(2,'0'):null;
+  const meta=g.metaAnual||0;
+  const falta=Math.max(meta-real26,0), pct=meta>0?real26/meta*100:0;
+  const corPct=pct>=100?'var(--green)':'var(--amber)';
+  const pctTxt=v=>v.toFixed(1).replace('.',',');
+  const card=(label,val,sub,cor,accent)=>`<div class="gkcard"><div class="gklabel">${label}</div><div class="gkval" style="color:${cor}">${val}</div><div class="gksub">${sub}</div><div class="gkcard-accent" style="background:${accent||cor}"></div></div>`;
+  set('geral-kpis',
+    card('Meta geral 2026',meta>0?fmtM(meta):'—',meta>0?'Meta anual da rede':'Meta anual não encontrada na planilha','var(--brand)')+
+    card('Realizado 2025',fmtM(real25),corte?`01/01 a ${corte}/2025<br>(mesma data de corte)`:`Jan a ${mesAtual}/2025`,'var(--ink)','#b9b4b0')+
+    card('Realizado 2026',fmtM(real26),corte?`01/01 a ${corte}/2026`:`Jan a ${mesAtual}/2026`,'var(--brand)')+
+    card('Falta para a meta',meta>0?(falta>0?fmtM(falta):'Meta batida'):'—',meta>0?(falta>0?`${pctTxt(100-pct)}% da meta ainda por vender`:'Meta anual atingida'):'—',falta>0||!(meta>0)?'var(--red)':'var(--green)')+
+    card('% da meta realizado',meta>0?pctTxt(pct)+'%':'—',`<div class="gbar"><i style="width:${Math.min(pct,100)}%;background:${corPct}"></i></div>`,corPct));
+  set('geral-strip',meta>0?`<div class="gstrip"><div class="gstrip-row"><span>R$ 0</span><span><b>Realizado ${fmtM(real26)}</b> · falta ${falta>0?fmtM(falta):'R$ 0'}</span><span>Meta ${fmtM(meta)}</span></div><div class="gstrip-bar"><i style="width:${Math.min(pct,100)}%"></i></div></div>`:'');
+  const nd='<span class="sem-dado">—</span>';
+  const money=v=>v>0?fmtM(v):nd;
+  const pill=v=>{if(v==null||!isFinite(v))return nd;const up=v>=0;return `<span class="gpl ${up?'up':'dn'}">${up?'▲':'▼'} ${up?'+':'-'}${pctTxt(Math.abs(v*100))}%</span>`;};
+  const body=g.meses.map((m,i)=>{
+    const cur=i===iA;
+    const g25=(m.r2024>0&&m.r2025_real>0)?m.r2025_real/m.r2024-1:null;
+    const baseLY=(cur&&base25>0)?base25:m.r2025_real;
+    const g26=(m.r2026_real>0&&baseLY>0)?m.r2026_real/baseLY-1:null;
+    const mark=(cur&&parcial&&m.r2026_real>0)?'*':'';
+    return `<tr${cur?' class="cur"':''}><td style="font-weight:700">${m.mes}</td><td class="r">${money(m.r2024)}</td><td class="r">${money(m.r2025_real)}</td><td class="r">${m.r2026_real>0?fmtM(m.r2026_real)+mark:nd}</td><td class="pct">${pill(g25)}</td><td class="pct">${pill(g26)}</td></tr>`;
+  }).join('');
+  const gAc=real25>0&&real26>0?real26/real25-1:null;
+  const gAno=t.r2024>0&&t.r2025_real>0?t.r2025_real/t.r2024-1:null;
+  set('geral-body',body+
+    `<tr class="total-row"><td>Acumulado${corte?' até '+corte:''}</td><td class="r">${nd}</td><td class="r">${fmtM(real25)}</td><td class="r">${fmtM(real26)}</td><td class="pct">${nd}</td><td class="pct">${pill(gAc)}</td></tr>`+
+    `<tr class="total-row"><td>Total do ano</td><td class="r">${money(t.r2024)}</td><td class="r">${money(t.r2025_real)}</td><td class="r"><span class="sem-dado">em andamento</span></td><td class="pct">${pill(gAno)}</td><td class="pct">${nd}</td></tr>`);
+  set('geral-fn',parcial?`* ${mesAtual}/26 parcial${corte?' (até '+corte+')':''}. O crescimento de ${mesAtual} compara com o mesmo período de 2025 (${fmtM(base25)}), não com o mês fechado.`:'');
 }
-
 function renderAll(){
   if(!MES_ATIVO||!DB.dataset[MES_ATIVO]) return;
   renderFechamento(); renderResp(); renderCanais(); renderCresc(); renderNvTm(); renderRanking(FILTRO_RANK);
