@@ -656,14 +656,23 @@ function handleFile(input) {
       if (!ws) { alert('Aba "2026" não encontrada.'); return; }
       const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:null});
       const header = rows[0];
+      // Colunas por nome de cabeçalho (a planilha ganhou a coluna "cluster" e deslocou as demais)
+      const _hn=s=>String(s==null?'':s).replace(/\s+/g,' ').trim().toLowerCase();
+      const _hc=(n,fb)=>{const i=header.findIndex(h=>_hn(h)===n);return i>=0?i:fb;};
+      const cT=_hc('franquia/lp',1), cA=_hc('ativa',2), cG=_hc('gs',3), cL=_hc('loja',4);
       const meses = [], dataset = {};
 
       // Crescimento anual da rede (CM66) e SSS anual (CM67) - aba 2026
       let crescAnualRede=null, sssAnualRede=null;
       try {
-        const idxCM = XLSX.utils.decode_col('CM');
-        const v66 = rows[65] && rows[65][idxCM];
-        const v67 = rows[66] && rows[66][idxCM];
+        let idxCM = -1; header.forEach((h,i)=>{ const t=_hn(h); if (/cresc/.test(t) && /anual/.test(t) && /25 x 26/.test(t)) idxCM=i; });
+        if (idxCM < 0) idxCM = XLSX.utils.decode_col('CM');
+        let iTot=-1,iSss=-1;
+        for (let ri=1; ri<rows.length; ri++){ const r=rows[ri]; if(!r) continue;
+          if (iTot<0 && !r[cT] && !r[cL] && typeof r[idxCM]==='number') iTot=ri;
+          if (r[cL]==='SSS' && iSss<0) iSss=ri; }
+        const v66 = iTot>=0 ? rows[iTot][idxCM] : null;
+        const v67 = iSss>=0 ? rows[iSss][idxCM] : null;
         if (typeof v66 === 'number') crescAnualRede = +(v66*100).toFixed(2);
         if (typeof v67 === 'number') sssAnualRede = +(v67*100).toFixed(2);
       } catch(e) { console.warn('CM66/CM67 parse error:', e); }
@@ -687,13 +696,13 @@ function handleFile(input) {
         let crescRede=null, sss=null;
         for (let ri=1; ri<rows.length; ri++) {
           const r=rows[ri]; if (!r) continue;
-          if (!r[1]&&!r[4]&&crescCol<r.length) { const v=r[crescCol]; if (typeof v==='number'&&crescRede===null) crescRede=v; }
-          if (r[4]==='SSS'&&crescCol<r.length) { const v=r[crescCol]; if (typeof v==='number') sss=v; }
+          if (!r[cT]&&!r[cL]&&crescCol<r.length) { const v=r[crescCol]; if (typeof v==='number'&&crescRede===null) crescRede=v; }
+          if (r[cL]==='SSS'&&crescCol<r.length) { const v=r[crescCol]; if (typeof v==='number') sss=v; }
         }
         const lojas=[];
         for (let ri=1; ri<rows.length; ri++) {
-          const r=rows[ri]; if (!r||!r[1]) break; if (r[2]!=='sim') continue;
-          const nome=(r[4]||'').toString().replace(/^RAHRA\s*/i,'').trim();
+          const r=rows[ri]; if (!r||!r[cT]) break; if (r[cA]!=='sim') continue;
+          const nome=(r[cL]||'').toString().replace(/^RAHRA\s*/i,'').trim();
           const real=+r[real26Col]||0, meta=+r[metaCol]||0, r25=real25Col!==null?(+r[real25Col]||0):0;
           let cresc=crescCol<r.length?r[crescCol]:null, pa=paCol!==null&&paCol<r.length?r[paCol]:null;
           const nv26=nv26Col!==null&&nv26Col<r.length?Math.round(+r[nv26Col]||0):0;
@@ -701,15 +710,18 @@ function handleFile(input) {
           const nv25=nv25Col!==null&&nv25Col<r.length?Math.round(+r[nv25Col]||0):0;
           const tm25=tm25Col!==null&&tm25Col<r.length?(+r[tm25Col]||0):0;
           if (typeof pa==='string') pa=null; if (typeof cresc==='string') cresc=null;
-          lojas.push({tipo:r[1],gs:r[3]||'N/D',nome,meta:+meta.toFixed(2),real:+real.toFixed(2),r25:+r25.toFixed(2),
+          lojas.push({tipo:r[cT],gs:r[cG]||'N/D',nome,meta:+meta.toFixed(2),real:+real.toFixed(2),r25:+r25.toFixed(2),
             pct:meta>0?+(real/meta*100).toFixed(1):0,cresc:typeof cresc==='number'?+(cresc*100).toFixed(1):null,
             pa:typeof pa==='number'?+pa.toFixed(2):null,nv26,tm26:+tm26.toFixed(2),nv25,tm25:+tm25.toFixed(2)});
         }
         if (lojas.filter(l=>l.real>0).length===0) continue;
         meses.push(nomeCap);
-        dataset[nomeCap]={lojas,cresc_rede:crescRede!==null?+(crescRede*100).toFixed(4):null,sss:sss!==null?+(sss*100).toFixed(4):null,tem_dados:true};
+        // Meta oficial da rede = célula da linha Total (inclui lojas fechadas com meta); usada só no mês mais recente
+        let metaRede=null; for (let ri=1; ri<rows.length; ri++){const r=rows[ri]; if(r&&!r[cT]&&!r[cL]&&typeof r[metaCol]==='number'&&r[metaCol]>0){metaRede=r[metaCol];break;}}
+        dataset[nomeCap]={meta_rede:metaRede!==null?+metaRede.toFixed(2):null,lojas,cresc_rede:crescRede!==null?+(crescRede*100).toFixed(4):null,sss:sss!==null?+(sss*100).toFixed(4):null,tem_dados:true};
       }
-      const evol=meses.map(m=>{const ls=dataset[m].lojas,r=ls.reduce((s,l)=>s+l.real,0),mt=ls.reduce((s,l)=>s+l.meta,0);return {mes:m,real:+r.toFixed(2),meta:+mt.toFixed(2),pct:mt>0?+(r/mt*100).toFixed(1):0};});
+      meses.forEach((m,i)=>{if(i<meses.length-1)dataset[m].meta_rede=null;});
+      const evol=meses.map(m=>{const ls=dataset[m].lojas,r=ls.reduce((s,l)=>s+l.real,0),mt=dataset[m].meta_rede||ls.reduce((s,l)=>s+l.meta,0);return {mes:m,real:+r.toFixed(2),meta:+mt.toFixed(2),pct:mt>0?+(r/mt*100).toFixed(1):0};});
       if (!meses.length) { alert('Nenhum mês com dados.'); return; }
 
       // Ler aba Geral
@@ -853,6 +865,7 @@ function selecionarMes(mes,btn){
 
 function renderFechamento(){
   const d=DB.dataset[MES_ATIVO],t=calc(d.lojas);
+  if(d.meta_rede>0){t.meta=d.meta_rede;t.pct=t.real/t.meta*100;}
   const lp=d.lojas.filter(l=>l.tipo==='LP'),fr=d.lojas.filter(l=>l.tipo==='Franquia');
   const ro3=d.resumo_oficial||{};
   const cr=d.cresc_rede,ss=d.sss;
